@@ -15,12 +15,7 @@ html {
     color: #eee;
     font-size: 1.25em;
     line-height: 1;
-    text-shadow: 0.02rem 0 0.02rem #ea36af, -0.05rem 0 0.02rem #75fa69;
     letter-spacing: 0.125em;
-    animation-duration: 0.01s;
-    animation-name: textflicker;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 body {
     /*display: flex;*/
@@ -28,7 +23,11 @@ body {
     background-color: #000;
     line-height: 100%;
     color: #aaa;
-    overflow-x: hidden
+    overflow-x: hidden;
+    animation-duration: 0.015s;
+    animation-name: flicker;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 body.xform {
     overflow-y: scroll;
@@ -36,52 +35,91 @@ body.xform {
     line-height: 16px
 }
 
-@media screen and (min-width: 1200px) {
-    body {
-        margin-left: 20rem;
-        margin-right: 20rem;
-    }
-  }
+/*This adds a "crt scanlines" effect to the screen*/
+.crt-scanlines::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
 
-  @media screen and (min-width: 600px) {
-      body {
-          margin-left: 5em;
-          margin-right: 5em;
-      }
-  }
-  
-  @keyframes textflicker {
-    from {
-      text-shadow: 1px 0 0 #ea36af, -1px 0 0 #75fa69;
-    }
-    to {
-      text-shadow: 1px 0.5px 1px #ea36af, -1px -0.5px 1px #75fa69;
-    }
-  }
+/*This adds a "flickering screen" effect*/
+.crt-flicker::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+    0% {opacity: 0.87861;}
+    50% {opacity: 0.96019;}
+    100% {opacity: 0.84387;}
+}
+
+/*Adds a "color separation flicker" effect to all text*/
+.crt-colorsep {
+    animation: textShadow 1.6s infinite;
+}
+
+@keyframes textShadow {
+    0% {text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    5% {text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    10% {text-shadow: 0.02956275843481219px 0 1px rgba(0,30,255,0.5), -0.02956275843481219px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    15% {text-shadow: 0.40218538552878136px 0 1px rgba(0,30,255,0.5), -0.40218538552878136px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    20% {text-shadow: 3.4794037899852017px 0 1px rgba(0,30,255,0.5), -3.4794037899852017px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    25% {text-shadow: 1.6125630401149584px 0 1px rgba(0,30,255,0.5), -1.6125630401149584px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    30% {text-shadow: 0.7015590085143956px 0 1px rgba(0,30,255,0.5), -0.7015590085143956px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    35% {text-shadow: 3.896914047650351px 0 1px rgba(0,30,255,0.5), -3.896914047650351px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    40% {text-shadow: 3.870905614848819px 0 1px rgba(0,30,255,0.5), -3.870905614848819px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    45% {text-shadow: 2.231056963361899px 0 1px rgba(0,30,255,0.5), -2.231056963361899px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    50% {text-shadow: 0.08084290417898504px 0 1px rgba(0,30,255,0.5), -0.08084290417898504px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    55% {text-shadow: 2.3758461067427543px 0 1px rgba(0,30,255,0.5), -2.3758461067427543px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    60% {text-shadow: 2.202193051050636px 0 1px rgba(0,30,255,0.5), -2.202193051050636px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    65% {text-shadow: 2.8638780614874975px 0 1px rgba(0,30,255,0.5), -2.8638780614874975px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    70% {text-shadow: 0.48874025155497314px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    75% {text-shadow: 1.8948491305757957px 0 1px rgba(0,30,255,0.5), -1.8948491305757957px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    80% {text-shadow: 0.0833037308038857px 0 1px rgba(0,30,255,0.5), -0.0833037308038857px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    85% {text-shadow: 0.09769827255241735px 0 1px rgba(0,30,255,0.5), -0.09769827255241735px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    90% {text-shadow: 3.443339761481782px 0 1px rgba(0,30,255,0.5), -3.443339761481782px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    95% {text-shadow: 2.1841838852799786px 0 1px rgba(0,30,255,0.5), -2.1841838852799786px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+    100% {text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;}
+}
 
 .content {
     display: flex;
     flex-direction: row;
-    flex-grow: 3;
-    flex: 1 0 auto;
+    flex: 1;
+    overflow: visible;
+    /* height: 100%; */
 }
-main {
+.main {
+    flex: 100%;
     flex-direction: column;
+    padding: 20px;
+    /* height: 100%; */
 }
-aside {
-    margin: 1rem 1rem 1rem 1rem;
-    flex-direction: column;
-    align-self: flex-start;
-    margin-right: 1rem;
+.aside {
+    flex: 15%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 20px;
     border-right: gray 1px solid;
-    height:max-content;
-}
-.sidebar-scroller {
-    padding-right: 0;
-    box-sizing: content-box;
-    width: 100%;
-    text-align: left;
-    height: fit-content;
 }
 footer {
     display: flex;
@@ -91,24 +129,53 @@ footer {
 }
 nav {
     display: flex;
-    flex-wrap: nowrap;
     width: 100%;
     background: #2e2e2e repeat-x scroll 0 7px;
-    height: fit-content;
     z-index: 4;
-    box-sizing: content-box;
-    display: flex;
     flex-direction: row;
-    flex-wrap:nowrap;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 20px;
     text-align-last: right;
 }
+.navlist {
+    display: flex;
+    flex-direction: row;
+}
+nav li a {
+    padding: 14px 20px;
+    margin: 8px;
+    text-decoration: none;
+    text-align: center;
+    background-color: maroon;
+    box-shadow: 8px 9px 0 0 black;
+    line-height: 160%;
+}
+nav li a:hover {
+    background-color: red;
+}
+.aside ul {
+    margin: 0;
+    list-style-type: square;
+}
+.aside li {
+    margin-bottom: 1.75rem;
+}
+.aside li a {
+    padding: 6px 8px;
+    text-decoration: none;
+    text-align: center;
+    background-color: maroon;
+    box-shadow: 8px 9px 0 0 #444;
+    line-height: 160%;
+}
+.aside li a:hover {
+    background-color: red;
+}
 a, a:visited {
-    border-color: #aaa !important;
-    background-color: transparent !important;
-    color: rgb(72, 72, 72);
+    border-color: #aaa ;
+    background-color: transparent ;
+    color: lightgray;
 }
 a:hover {
     color:rgb(255, 196, 0);
@@ -124,9 +191,6 @@ p {
     padding: 0;
     text-align: left;
     word-break: break-word
-}
-ul {
-    text-align: left
 }
 hr {
     padding: 0;
@@ -205,16 +269,24 @@ strong, b, .strong {
     font-weight: 400;
     color: #fff
 }
-input[type=submit], input[type=button] {
-    color: #fff;
+input[type=submit], button {
+    color: lightgray;
     text-align: left;
-    width: 25ch;
     background-color: #a00;
     border-width: 0;
-    padding: 0 8px;
-    margin: 1em 2ch 0;
-    box-shadow: 1ch 8px 0 0 #000;
-    line-height: 1em
+    padding: 8px 8px;
+    margin: 1rem 1rem 1rem;
+    box-shadow: 1ch 8px 0 0 #111;
+    line-height: 1em;
+    font-family: 'IBM-VGA', monospace;
+    font-size: larger;
+}
+button:hover {
+    background-color: #c60;
+}
+button:active{
+    background-color:  yellow;
+    color: black;
 }
 input[type=submit]:enabled:hover, input[type=button]:enabled:hover {
     background-color: #aaa;
@@ -224,8 +296,7 @@ input[type=submit]:enabled:hover, input[type=button]:enabled:hover {
 input[type=submit]:disabled, input[type=button]:disabled {
     color: #444
 }
-input[type=text] {
-    width: 4ch;
+input, select {
     border-bottom: 1px solid #aaa;
     border-left: 0;
     border-right: 0;
@@ -235,16 +306,18 @@ input[type=text] {
     margin: 0 0 0 1ch;
     padding-top: 0;
     vertical-align: baseline;
-    line-height: 1em;
-    height: 1em;
-    box-sizing: content-box
+    height: 2em;
+    box-sizing: content-box;
+    font-family: 'IBM-VGA', monospace;
+    font-size: large;
 }
 input[type=text]:focus {
     color: #fff;
     background-color: #005
 }
 form, input, textarea {
-    box-sizing: border-box
+    box-sizing: border-box;
+    box-shadow: 1ch 8px 0 0 #222;
 }
 textarea {
     border-right: 2px solid #888;
@@ -259,10 +332,61 @@ textarea:focus {
     background-color: #005
 }
 .nav-image{
-    margin: 0.25em;
-    border: #fff 1px solid;
+    margin: 0.75rem;
+    box-shadow: 8px 9px 0 0 black;
 }
 ul {
     display: inline-block;
     list-style-type: none;
+    text-align: left;
+}
+.card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 100%;
+    gap: 1rem;
+}
+.card {
+    border: 1px solid #444;
+}
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: fit-content;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* Modal Content/Box */
+.modal-content {
+    background-color: #222;
+    margin: 5% auto 30% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    position: relative;
+    width: 80%;
+}
+.close {
+    margin: 2rem;
+    color: #aaa;
+    float: right;
+    font-size: 72px;
+    font-weight: bold;
+}
+.close:active {
+    color: maroon;
+    text-decoration: none;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
 }
