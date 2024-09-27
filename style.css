@@ -36,6 +36,16 @@
     }
 }
 
+::-moz-selection {
+    color: black;
+    background: lime;
+  }
+  
+  ::selection {
+    color: black;
+    background: lime;
+  }
+
 html {
     height: 100%;
     box-sizing: border-box;
