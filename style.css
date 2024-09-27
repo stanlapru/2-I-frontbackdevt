@@ -6,6 +6,36 @@
     src: url(./fonts/PxPlus_ToshibaSat_9x16.ttf) format('opentype')
 }
 
+@media (max-width: 1300px){
+    .nav-image {
+        display: none;
+    }
+    nav {
+        justify-content: center;
+    }
+    .name-group {
+        display: none;
+    }
+}
+
+@media (max-width: 1236px){
+    nav li {
+        margin-bottom: 1.25rem;
+    }
+    .navlist {
+        justify-content: center;
+    }
+    h1 {
+        line-height: 32px;
+    }
+}
+
+@media (max-width: 800px) {
+    .aside {
+        display: none;
+    }
+}
+
 html {
     height: 100%;
     box-sizing: border-box;
@@ -135,12 +165,14 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    /* gap: 20px; */
+    column-gap: 2rem;
     text-align-last: right;
 }
 .navlist {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 nav li a {
     padding: 14px 20px;
@@ -153,6 +185,11 @@ nav li a {
 }
 nav li a:hover {
     background-color: red;
+    color: #fff;
+}
+nav li a:active {
+    background-color: yellow;
+    color: black;
 }
 .aside ul {
     margin: 0;
@@ -171,6 +208,11 @@ nav li a:hover {
 }
 .aside li a:hover {
     background-color: red;
+    color: #fff;
+}
+.aside li a:active {
+    background-color: yellow;
+    color: black;
 }
 a, a:visited {
     border-color: #aaa ;
@@ -219,6 +261,13 @@ tbody {
     border-left: 2px solid #555;
     border-right: 2px solid #555;
     border-bottom: 1px solid #555
+}
+tbody td {
+    padding: 0.5rem;
+}
+tbody tr:nth-child(odd) {
+    background-color: #111;
+    color: #fff;
 }
 #content h1 {
     color: #fff;
@@ -272,21 +321,43 @@ strong, b, .strong {
 input[type=submit], button {
     color: lightgray;
     text-align: left;
-    background-color: #a00;
+    background-color: maroon;
     border-width: 0;
     padding: 8px 8px;
-    margin: 1rem 1rem 1rem;
+    margin: 1rem 1rem 1rem 1rem;
     box-shadow: 1ch 8px 0 0 #111;
     line-height: 1em;
     font-family: 'IBM-VGA', monospace;
     font-size: larger;
 }
 button:hover {
-    background-color: #c60;
+    background-color: red;
 }
 button:active{
     background-color:  yellow;
     color: black;
+}
+input[type="checkbox"] {
+    accent-color: maroon;
+    transform: scale(1);
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: 2px solid gray;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+input[type="checkbox"]:hover{
+    background-color: maroon;
+}
+input[type="checkbox"]:checked{
+    background-color: red;
+}
+input[type="checkbox"]:active{
+    background-color: yellow;
 }
 input[type=submit]:enabled:hover, input[type=button]:enabled:hover {
     background-color: #aaa;
@@ -339,6 +410,7 @@ ul {
     display: inline-block;
     list-style-type: none;
     text-align: left;
+    padding-inline-start: 0px;
 }
 .card-row {
     display: flex;
