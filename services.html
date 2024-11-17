@@ -14,6 +14,31 @@
 <!-- Основной контент -->
 
 <body class="xform crt-colorsep crt-scanlines">
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+
+    <script>
+        // Get the button:
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        } 
+    </script>
+
     <div class="modal" id="modal" style="position: sticky;">
         <span class="close">&times;</span>
         <form style="display: flexbox;" name="form" id="form" class="modal-content" action="./thanks.html" method="get">
@@ -23,30 +48,30 @@
                 для обсуждения задачи в подробностях.<br><br>* -
                 обязательные поля</p>
             <p id="type" style="color: yellow;"></p>
-            <label style="display: flex;" for="fio">ФИО*:
+            <label style="display: flex; margin-top: 1em" for="fio">ФИО*:
             </label><input name="fio" id="fio" type="text" required>
-            <label style="display: flex;" for="email">E-mail*: </label><input name="email" id="email" type="email"
+            <label style="display: flex; margin-top: 1em" for="email">E-mail*: </label><input name="email" id="email" type="email"
                 required>
-            <label style="display: flex;" for="phone">Телефон*: </label><input name="phone" id="phone" type="tel"
+            <label style="display: flex; margin-top: 1em" for="phone">Телефон*: </label><input name="phone" id="phone" type="tel"
                 required>
-            <div><label style="display: flex;" for="country">Страна*: </label><select name="country" id="country"
+            <div><label style="display: flex; margin-top: 1em" for="country">Страна*: </label><select name="country" id="country"
                     type="text">
                     <option value="russia">Россия</option>
                     <option value="belarus">Беларусь</option>
                     <option value="kazakhstan">Казахстан</option>
                     <option value="uzbekistan">Узбекистан</option>
                 </select></div>
-            <label style="display: flex;" for="date">Дата*:
+            <label style="display: flex; margin-top: 1em" for="date">Дата*:
             </label><input name="date" id="date" type="date" required>
-            <label style="display: flex;" for="credit">№
+            <label style="display: flex; margin-top: 1em" for="credit">№
                 кредитной карты: </label><input name="credit" id="credit" type="number">
-            <label style="display: flex;" for="expiry">Дата
+            <label style="display: flex; margin-top: 1em" for="expiry">Дата
                 истечения кредитной карты: </label><input name="expiry" id="expiry" type="date">
-            <label style="display: flex;" for="owner">Владелец кредитной карты:
+            <label style="display: flex; margin-top: 1em" for="owner">Владелец кредитной карты:
             </label><input name="owner" id="owner" type="text">
-            <label style="display: flex;" for="cvv">CVV
+            <label style="display: flex; margin-top: 1em" for="cvv">CVV
                 кредитной карты: </label><input name="cvv" id="cvv" type="number" pattern="[0-9]{3}">
-            <div><label style="display: flex;" for="comment">Комментарий:
+            <div><label style="display: flex; margin-top: 1em" for="comment">Комментарий:
                 </label><textarea name="comment" id="comment" type="text"></textarea></div>
             <input type="checkbox" id="agree" name="agree" required>
             <label for="agree">Соглашаюсь на обработку моих

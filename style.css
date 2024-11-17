@@ -85,7 +85,7 @@ body.xform {
     bottom: 0;
     right: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 2;
+    z-index: 4;
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
 }
@@ -340,6 +340,30 @@ input[type=submit], button {
     font-family: 'IBM-VGA', monospace;
     font-size: larger;
 }
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 3; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: maroon; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+}
+
+#myBtn:hover {
+    background-color: red;
+}
+
+#myBtn:active {
+    background-color:  yellow;
+    color: black;
+}
+
 button:hover {
     background-color: red;
 }
@@ -388,6 +412,7 @@ input, select {
     padding-top: 0;
     vertical-align: baseline;
     height: 2em;
+    width: 100%;
     box-sizing: content-box;
     font-family: 'IBM-VGA', monospace;
     font-size: large;
