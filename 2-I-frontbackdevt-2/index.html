@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <!-- Meta Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная</title>
+    <link rel="icon" type="image/jpg" href="./images/untitled.jpg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body class="xform crt-colorsep crt-scanlines">
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="myBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-3 d-none" title="Go to top">^</button>
+
+    <script>
+        // Show/hide button and scroll to top
+        let mybutton = document.getElementById("myBtn");
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.classList.remove("d-none");
+            } else {
+                mybutton.classList.add("d-none");
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/untitled.jpg" alt="Logo" class="img-fluid" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="first_sem.html">I семестр</a></li>
+                    <li class="nav-item"><a class="nav-link" href="second_sem.html">II семестр</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Услуги</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Авторизация</a></li>
+                </ul>
+                <div class="d-flex text-light">
+                    <div class="me-3">
+                        <p class="mb-0">Группа: ЭФБО-04-23</p>
+                        <p class="mb-0">ФИО: Лапутин С.А</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Навигация</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#frontend">Фронтенд</a></li>
+                            <li class="list-group-item"><a href="#backend">Бекенд</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h1 class="important text-center mb-4">[ Добро пожаловать ]</h1>
+                <p>Меня зовут Лапутин С.А. и я учусь на втором курсе по направлению 09.03.02.</p>
+                <div class="text-center">
+                    <img src="./images/5644249_1.jpg" class="img-fluid rounded my-3" alt="my picture" style="max-width: 200px;">
+                </div>
+
+                <h2 id="frontend" class="mt-4">[ Фронтенд ]</h2>
+                <p>
+                    C:&gt; <b>Фронтенд</b> - это то что видит наш любимый пользователь, т.е. это текст, кнопки, картинки и прочие ништячки.
+                    Для его разработки используют языки разметки страницы, её декорирования-стилизации а также её
+                    интерактивизации, то есть HTML, CSS/SASS, JS.
+                </p>
+                <div class="text-center my-3">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/yO3Ep_bQYgw" class="rounded border"></iframe>
+                </div>
+
+                <h2 id="backend" class="mt-4">[ Бекенд ]</h2>
+                <p>
+                    C:&gt; <b>Бекенд</b> - это те самые nooks and crannies сайта, то есть все те замысловатые алгоритмы обработки данных,
+                    управления пользователями и доступ к БД.
+                </p>
+                <div class="text-center my-3">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/ZgojwJEcLn8" class="rounded border"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 p-3">
+        <div class="container">
+            <p>(c) No rights reserved, Лапутин С.А., 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

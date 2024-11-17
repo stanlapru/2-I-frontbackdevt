@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>II семестр</title>
+    <link rel="icon" type="image/jpg" href="./images/untitled.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+
+    <button onclick="topFunction()" id="myBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-3 d-none" title="Go to top">^</button>
+
+    <script>
+        // Show/hide button and scroll to top
+        let mybutton = document.getElementById("myBtn");
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.classList.remove("d-none");
+            } else {
+                mybutton.classList.add("d-none");
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./images/untitled.jpg" alt="Logo" class="img-fluid" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="first_sem.html">I семестр</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">II семестр</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Услуги</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Авторизация</a></li>
+                </ul>
+                <div class="d-flex text-light">
+                    <div class="me-3">
+                        <p class="mb-0">Группа: ЭФБО-04-23</p>
+                        <p class="mb-0">ФИО: Лапутин С.А</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <!-- Aside Navigation -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Навигация</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#lectures">Лекции</a></li>
+                            <li class="list-group-item"><a href="#practices">Практики</a></li>
+                            <li class="list-group-item"><a href="#map">Адрес ВУЗа</a></li>
+                            <li class="list-group-item"><a href="#program">Рабочая программа</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <h1 class="display-6 mb-3">[ Второй семестр ]</h1>
+
+                <!-- Lectures -->
+                <h3 id="lectures">Лекции</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Дисциплина</th>
+                                <th scope="col">Посещение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">1</th><td>Технологии индустриального программирования</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">2</th><td>Создание ПО</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">3</th><td>Социальная психология и педагогика</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">4</th><td>Системы ИИ и большие данные</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">5</th><td>Дискретная математика</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">6</th><td>Математический анализ</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">7</th><td>Фронтенд и бэкенд разработка</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">8</th><td>Программирование корпоративных систем</td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">9</th><td>Русский язык и культура речи</td><td><input type="checkbox"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Practices -->
+                <h3 id="practices" class="mt-4">Практики</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Дисциплина</th>
+                                <th scope="col">Посещение</th>
+                                <th scope="col">Выполнение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">1</th><td>Фронтенд и бэкенд разработка</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">2</th><td>Физическая культура и спорт</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">3</th><td>Русский язык и культура речи</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">4</th><td>Дискретная математика</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">5</th><td>Технологии индустриального программирования</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">6</th><td>Математический анализ</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">7</th><td>Иностранный язык</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">8</th><td>Программирование корпоративных систем</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">9</th><td>Создание ПО</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                            <tr><th scope="row">10</th><td>Системы ИИ и большие данные</td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Map -->
+                <h3 id="map" class="mt-4">Адрес ВУЗа</h3>
+                <p>Мы находимся по адресу: Россия, г. Москва, Вернадского пр-т., д. 78, с. 4</p>
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aeb4b76437733b5d868f72816b7f1ec757aa0f31cec85b4a0d9d147d8cf6babb1&amp;source=constructor"
+                        allowfullscreen></iframe>
+                </div>
+
+                <!-- PDF Viewer -->
+                <h3 id="program" class="mt-4">Рабочая программа</h3>
+                <div class="ratio ratio-4x3">
+                    <iframe src="./iptip-2-rasp.pdf" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <p>(c) No rights reserved, Лапутин С.А., 2024</p>
+        <a href="https://vk.com/stanlap" class="text-light">
+            <i class="bi bi-vk"></i> VK
+        </a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
