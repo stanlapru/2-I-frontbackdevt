@@ -19,6 +19,52 @@
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function () {
+            const showSecondSemesterButton = document.getElementById('show_2');
+            const tableBody = document.getElementById("yes").querySelector('table tbody');
+
+            // Data for second semester topics
+            const secondSemesterTopics = [
+                "Базовое бэкенд-приложение",
+                "HTTP-запросы",
+                "JSON и работа с ним",
+                "HTTP-ответы",
+                "Проектирование API",
+                "Роутинг и его настройка",
+                "NoSQL базы данных",
+                "Обеспечение авторизации и доступа пользователей",
+                "Работа сторонних сервисов уведомления и авторизации",
+                "Основы ReactJS",
+                "Работа с компонентами динамической DOM",
+                "Использование хуков в React",
+                "Основы микросервисной архитектуры",
+                "Разработка классических модулей веб-приложений",
+                "Разработка классических модулей веб-приложений"
+            ];
+
+            showSecondSemesterButton.addEventListener('click', () => {
+                tableBody.innerHTML = '';
+
+                secondSemesterTopics.forEach((topic, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                    <th scope="row">${index + 1}</th>
+                    <td>${topic}</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                `;
+                    tableBody.appendChild(row);
+                });
+            });
+
+            document.getElementById("show-lectures").addEventListener("click", function () {
+                const lecturesTable = document.getElementById("lectures");
+                lecturesTable.classList.toggle("visible");
+            });
+        });
+    </script>
+
     <script>
         // Get the button:
         let mybutton = document.getElementById("myBtn");
@@ -69,9 +115,9 @@
         </div>
         <div class="main">
             <h1 class="important">[ Первый семестр ]</h1>
-            <br>
-            <h3 id="lectures">Лекции</h3>
-            <table>
+            <h3>Лекции</h3>
+            <button id="show-lectures">Показать лекции</button>
+            <table id="lectures">
                 <thead>
                     <tr>
                         <th scope="col">№</th>
@@ -129,7 +175,8 @@
                 </tbody>
             </table><br><br>
             <h3 id="practices">Практики</h3>
-            <table>
+            <button style="display: flex;" id="show_2">Посмотреть практики 2 семестра</button>
+            <table id="yes">
                 <thead>
                     <tr>
                         <th scope="col">№</th>

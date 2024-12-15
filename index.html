@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <!-- Основной контент -->
 
@@ -17,7 +18,58 @@
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
+    <script defer>
+        // Практики 12-1, 13-3
+        document.addEventListener("DOMContentLoaded", function () {
+            var h = document.getElementsByTagName("h1")[0];
+            var texts = document.getElementById("backend-js");
+            h.innerText = "Добро пожаловать на наш сайт!";
+
+            h.addEventListener('click', () => {
+                document.getElementById('msg').textContent = 'Вы кликнули на заголовок - отлично!';
+            });
+
+            var h2Elements = document.getElementsByTagName("h2");
+
+            for (var i = 0; i < h2Elements.length; i++) {
+                h2Elements[i].style.color = "red";
+            }
+
+            var txt = document.getElementById("frontend-text");
+            txt.innerText = "Это новый текст параграфа.";
+
+            var vids = document.getElementsByTagName("iframe");
+            for (var i = 0; i < vids.length; i++) {
+                vids[i].style.display = "none";
+            }
+
+            const pic = document.getElementById("yes");
+            pic.addEventListener('mouseover', () => {
+                pic.width = pic.width * 1.2;
+                pic.height = pic.height * 1.2;
+            });
+
+            pic.addEventListener('click', () => {
+                pic.src = "https://mirea.org/uploads/monthly_09_2009/post-11598-1252689414.jpg";
+            });
+
+            pic.addEventListener('dblclick', () => {
+                window.alert('Не налегай, у меня не так много любимых преподавателей');
+            });
+
+            texts.addEventListener("click", function () {
+                texts.style.backgroundColor = "blue";
+            });
+        });
+
+
+
+
+    </script>
+
     <script>
+
+
         // Get the button:
         let mybutton = document.getElementById("myBtn");
 
@@ -67,17 +119,19 @@
             </ul>
         </div>
         <div class="main">
-            <h1 class="important">[ Добро пожаловать ]</h1>
+            <h1 class="important" id="h1-anim">[ Добро пожаловать ]</h1>
+            <p id="msg"></p>
             <p>C:&gt; Меня зовут Лапутин С.А. и я учусь на
                 втором курсе по
                 направлению 09.03.02.</p>
 
-            <img style="max-width: 100%" src="./images/5644249_1.jpg" width="128" height="128" alt="my picture">
+            <img id="yes" style="max-width: 100%" src="./images/5644249_1.jpg" width="128" height="128"
+                alt="my picture" class="student-photo">
 
             <br><br>
 
             <h2 id="frontend">[ Фронтенд ]</h2>
-            <p>C:&gt; <b>Фронтенд</b> - это то что видит наш любимый пользователь,
+            <p id="frontend-text">C:&gt; <b>Фронтенд</b> - это то что видит наш любимый пользователь,
                 т.е. это текст, кнопки, картинки и прочие ништячки.
                 Для его разработки используют языки разметки
                 страницы, её декорирования-стилизации а также её
@@ -90,7 +144,7 @@
             </iframe>
             <br><br>
             <h2 id="backend">[ Бекенд ]</h2>
-            <p>C:&gt; <b>Бекенд</b> - это те самые nooks and crannies сайта, то
+            <p id="backend-js">C:&gt; <b>Бекенд</b> - это те самые nooks and crannies сайта, то
                 есть все те замысловатые алгоритмы обработки данных,
                 управления пользователями и доступ к БД, созданные
                 сумрачным гением из Дмитровского хлебобулочного
@@ -116,6 +170,8 @@
                 height="32" width="32" alt="vk logo">
         </a>
     </footer>
+    <script src="script.js"></script>
+
 </body>
 
 </html>

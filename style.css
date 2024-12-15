@@ -238,12 +238,16 @@ a:active {
 a:link {
     text-decoration: none
 }
+
 p {
     margin: 0 0 1em;
     padding: 0;
     text-align: left;
-    word-break: break-word
+    word-break: break-word;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
+
 hr {
     padding: 0;
     margin: 7px 0 8px;
@@ -285,6 +289,15 @@ tbody tr:nth-child(odd) {
     margin: 0;
     text-shadow: 2px 2px 0 #555
 }
+
+h1 {
+    transition: transform 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.2);
+}
+
 .important {
     color: #000;
     background-color: rgb(255, 196, 0);
@@ -496,4 +509,35 @@ ul {
     color: red;
     text-decoration: none;
     cursor: pointer;
+}
+
+#lectures {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: infinite;
+}
+
+#lectures.visible {
+    display: block;
+    opacity: 1;
+}
+
+.student-photo {
+    transition: transform 0.5s ease;
+}
+
+.student-photo:hover {
+    transform: rotate(360deg);
+}
+
+#submit-message {
+    opacity: 0;
+    color: red;
+    transition: opacity 2s ease, color 2s ease;
+}
+
+#submit-message.visible {
+    opacity: 1;
+    color: green;
 }

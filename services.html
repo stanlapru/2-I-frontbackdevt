@@ -18,6 +18,81 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
     <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // form data
+            const formData = {
+                name: "",
+                email: "",
+                phone: "",
+                date: "",
+                comment: "",
+                printData: function () {
+                    console.log(`Имя: ${this.name}`);
+                    console.log(`E-mail: ${this.email}`);
+                    console.log(`Телефон: ${this.phone}`);
+                    console.log(`Дата: ${this.date}`);
+                    console.log(`Комментарий: ${this.comment}`);
+                }
+            };
+            // proverka email
+            function isValidEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            // override submit form
+            function submitForm(event) {
+                event.preventDefault();
+
+                const name = document.getElementById("fio").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const date = document.getElementById("date").value;
+                const comment = document.getElementById("comment").value.trim();
+
+                if (!name) {
+                    alert("Имя не должно быть пустым.");
+                    return;
+                }
+                if (!email || !isValidEmail(email)) {
+                    alert("Введите корректный e-mail.");
+                    return;
+                }
+                if (!phone || isNaN(phone.replace(/\s|\+|\-|\(|\)/g, ""))) {
+                    alert("Телефон должен содержать только цифры.");
+                    return;
+                }
+                if (!date) {
+                    alert("Дата не должна быть пустой.");
+                    return;
+                }
+                if (!comment) {
+                    alert("Комментарий не должен быть пустым.");
+                    return;
+                }
+
+                formData.name = name;
+                formData.email = email;
+                formData.phone = phone;
+                formData.date = date;
+                formData.comment = comment;
+                formData.printData();
+
+                // window.location.href = "./thanks.html";
+
+                const message = document.getElementById("submit-message");
+                message.style.display = "block";
+                message.classList.add("visible");
+            }
+
+            const submitButton = document.getElementById("submit");
+            submitButton.addEventListener("click", submitForm);
+
+
+        });
+
         // Get the button:
         let mybutton = document.getElementById("myBtn");
 
@@ -50,12 +125,12 @@
             <p id="type" style="color: yellow;"></p>
             <label style="display: flex; margin-top: 1em" for="fio">ФИО*:
             </label><input name="fio" id="fio" type="text" required>
-            <label style="display: flex; margin-top: 1em" for="email">E-mail*: </label><input name="email" id="email" type="email"
-                required>
-            <label style="display: flex; margin-top: 1em" for="phone">Телефон*: </label><input name="phone" id="phone" type="tel"
-                required>
-            <div><label style="display: flex; margin-top: 1em" for="country">Страна*: </label><select name="country" id="country"
-                    type="text">
+            <label style="display: flex; margin-top: 1em" for="email">E-mail*: </label><input name="email" id="email"
+                type="email" required>
+            <label style="display: flex; margin-top: 1em" for="phone">Телефон*: </label><input name="phone" id="phone"
+                type="tel" required>
+            <div><label style="display: flex; margin-top: 1em" for="country">Страна*: </label><select name="country"
+                    id="country" type="text">
                     <option value="russia">Россия</option>
                     <option value="belarus">Беларусь</option>
                     <option value="kazakhstan">Казахстан</option>
@@ -79,6 +154,7 @@
                 моей кредитной карты*</label>
             <button style="display: flex;" id="submit">Отправить
                 запрос</button>
+            <p id="submit-message">Форма отправлена!</p>
         </form>
     </div>
     <!-- Верхушка -->
@@ -146,6 +222,7 @@
             <hr>
 
             <script>
+
                 var modal = document.getElementById("modal");
                 var btn = document.getElementById("openform");
                 var btn2 = document.getElementById("openform2");
@@ -212,13 +289,15 @@
             </script>
 
             <h2 id="detailed">[ Подробнее ]</h2>
-            <p>C:&gt; Как вы можете заметить, сайт сделан наподобие программы для <b>MS-DOS</b>. Такой нестандартный выбор я обосную
+            <p>C:&gt; Как вы можете заметить, сайт сделан наподобие программы для <b>MS-DOS</b>. Такой нестандартный
+                выбор я обосную
                 тем, что таких сайтов на просторах интернета не так много. Пока все делают визитки в стиле минимализм,
                 пост-модерн, почему бы не сделать ретро-минимализм? Как по мне, ничем не хуже скеоморфизма, который я
                 тоже хотел бы сделать, но на момент написания этого текста мне было лень этим заниматься. Надеюсь, что
                 текст читабелен.<br><br>
 
-                C:&gt; Что касается игр, то я просто обожаю <b>Deep Rock Galactic</b>. Лучшая игра десятилетия. Тот факт, что, с кем
+                C:&gt; Что касается игр, то я просто обожаю <b>Deep Rock Galactic</b>. Лучшая игра десятилетия. Тот
+                факт, что, с кем
                 бы я не играл, даже в публичных лобби, играть всё равно весело, говорит о том, что игра сделана на
                 славу. Также я люблю строить города в Cities: Skylines, мосты из тянучек в World of Goo и World of Goo 2
                 (ОЧЕНЬ РЕКОМЕНДУЮ, это игры моего детства!), создавать существ в Spore, гонять в машинки в BeamNG.Drive,
@@ -227,7 +306,8 @@
                 некомпетентности. Впрочем, я считаю себя довольно компетентным, и моё предыдущее заявление я хотел бы
                 счесть неудачной шуткой.<br><br>
 
-                C:&gt; Кстати говоря, я люблю фотографировать на плёнку. Фотоаппарат у меня старый добрый <b>Зенит-122</b>, собранный
+                C:&gt; Кстати говоря, я люблю фотографировать на плёнку. Фотоаппарат у меня старый добрый
+                <b>Зенит-122</b>, собранный
                 на Красногорском Механическом Заводе в октябре 1991 года. Он лежал в заводской коробке около 34 лет, и
                 теперь активно используется мной. Сей аппарат оборудован объективом Гелиос-44-М6, тоже 1991 года
                 выпуска, который славится тем, что он отличный портретник - а также за его красивый эффект крученого
@@ -240,7 +320,8 @@
                 ремонта. Увы, такова реальность. Даже точные и надёжные советские механические аппараты со временем
                 ломаются. Хотя, должен отметить, я горжусь такой вещью.<br><br>
 
-                C:&gt; Также считаю необходимым упомянуть и наличие у меня фотоаппарата <b>Зоркий-6</b>, собранный на том же заводе
+                C:&gt; Также считаю необходимым упомянуть и наличие у меня фотоаппарата <b>Зоркий-6</b>, собранный на
+                том же заводе
                 КМЗ, но уже в 1964 году. Дед! Тем не менее, вроде бы он делает снимки. Какие именно - не могу сказать,
                 так как ещё ни разу не проявлял с него плёнку. Его особенность - видоискатель. Он весьма старомодный и
                 чрезвычайно неудобен в эксплуатации - это вам не зеркальный фотоаппарат. Так как вещь такая старая, в
@@ -249,7 +330,20 @@
                 подходят для вставки в фотоаппарат, её резьба для перемотки плёнки не совместима с аппаратом перемотки,
                 который есть в этом фотоаппарате, поэтому колесо настройки DIN плёнки не крутится - хотя должно. Слишком
                 старый формат кассеты требует дед. Впрочем, плёнка спокойно наматывается в приемную катушку, поэтому,
-                как принято говорить в молодёжи, мне "пофигу".</p>
+                как принято говорить в молодёжи, мне "пофигу".<br><br>
+
+                C:&gt; С недавних пор, кстати, у меня также во владении имеется фотоаппарат (да, еще один) <b>Зенит
+                    АПк</b>. Собирался он с 1992 по 1998 год, мой экземпляр из 1998 года. Эта модель славится своей
+                ненадежностью, постоянными ремонтами и покупкой последних камер этой модели в 2006-2008 годах. Мой
+                экземпляр, к счастью, полностью рабочий. К сожалению, ввиду того, что таких аппаратов произвели всего
+                около 6300 штук, а в интернете НИГДЕ нет никакой документации о ремонте этой модели, далеко не каждая
+                ремонтная мастерская возьмется за эту модель, стоит ему сломаться, чего не хотелось бы. Зачем я его
+                взял? Потому что это самая продвинутая модель из всех советских и российских малоформатных фотокамер.
+                Автоматический и полуавтоматический режимы, репетир, байонет, спуск с тросика, экспокоррекция и японский
+                затвор с выдержками от 1 до 1/2000с, включая ручную. Надо бы попросить кого-нибудь из компьютерного
+                дизайна задизайнить переднюю крышку этого аппарата и написать на ней вместо АПк - АПм, и продать за
+                100500 рублей. Ибо Зенит АПк и Зенит АПм никак не различимы внешне, но АПм произвели всего 15 штук. Коварнейший план.
+            </p>
         </div>
     </div>
     </div>
